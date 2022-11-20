@@ -1,0 +1,67 @@
+@import url('../../libs/bootstrap/css/bootstrap.min.css');
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+header :hover {
+  cursor: pointer;
+}
+
+.not-found {
+  font-size: 15rem;
+  text-align: center;
+}
+.not-found p {
+  font-size: 5rem;
+  text-align: center;
+  color: #000;
+}
+.gitHub {
+  margin-top: 6rem;
+}
+
+.mt-l {
+  margin-top: 4rem;
+}
+
+.display-none {
+  display: none;
+}
+.enable {
+  border-color: #25de51;
+  border-width: medium;
+  box-shadow: #229e3f;
+}
+.disable {
+  opacity: 0.5;
+  border-color: red;
+  border-width: medium;
+}
+
+.input-Search {
+  width: 70%;
+  margin: 0 auto;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #2a2a2a2d;
+  padding: 0.5rem;
+}
+
+.pokedexBG {
+  background-color: #000;
+  background-image: url('/assets/img/pokedexBG.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,134 @@
+<main class='container mt-l'>
+  <div class='row mb-4'>
+    <div class='col-12'>
+      <h1 class='text-center mt-4'><img src='/assets/img/pokedex.ico' />
+        {{#if editMode}}Editing {{else}}Catching a new {{/if}}Pokemon
+        <img src='/assets/img/pokedex.ico' /></h1>
+    </div>
+  </div>
+  <form method='post' action='{{#if editMode}}/admin/edit-Pokemon{{else}}/admin/create-Pokemon{{/if}}'>
+    <section class='row col-md-4 mx-auto'>
+      {{#if editMode}}
+        <img class="col-md-4 img-fluid mx-auto" src="{{pokemon.Image}}"/>
+      {{/if}}
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Name</span>
+        <input
+          type='text'
+          class='form-control'
+          placeholder='PokeName'
+          id='name'
+          name='Name'
+          value='{{#if editMode}}{{pokemon.Name}}{{/if}}'
+        />
+      </div>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Image</span>
+        <input
+          type='text'
+          class='form-control'
+          placeholder='PokeImageURL'
+          id='image'
+          name='Image'
+          value='{{#if editMode}}{{pokemon.Image}}{{/if}}'
+        />
+      </div>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Type</span>
+        <select
+          type='text'
+          class='form-select'
+          placeholder='PokeName'
+          id='type'
+          name='Type'
+        >
+          <option selected='' class='text-muted'>{{#if editMode}}{{pokemon.Type}}{{else}}Select Type{{/if}}</option>
+          <option value='Normal'>Normal</option>
+          <option value='Fire'>Fire</option>
+          <option value='Water'>Water</option>
+          <option value='Electric'>Electric</option>
+          <option value='Grass'>Grass</option>
+          <option value='Ice'>Ice</option>
+          <option value='Fighting'>Fighting</option>
+          <option value='Poison'>Poison</option>
+          <option value='Ground'>Ground</option>
+          <option value='Flying'>Flying</option>
+          <option value='Psychic'>Psychic</option>
+          <option value='Bug'>Bug</option>
+          <option value='Rock'>Rock</option>
+          <option value='Ghost'>Ghost</option>
+          <option value='Dragon'>Dragon</option>
+          <option value='Dark'>Dark</option>
+          <option value='Steel'>Steel</option>
+          <option value='Fairy'>Fairy</option>
+        </select>
+      </div>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Second Type</span>
+        <select
+          type='text'
+          class='form-select'
+          placeholder='PokeName'
+          id='type2'
+          name='Type2'
+        >
+          <option selected='' class='text-muted'>{{#if editMode}}{{pokemon.Type2}}{{else}}Select Type{{/if}}</option>
+          <option value='Normal'>Normal</option>
+          <option value='Fire'>Fire</option>
+          <option value='Water'>Water</option>
+          <option value='Electric'>Electric</option>
+          <option value='Grass'>Grass</option>
+          <option value='Ice'>Ice</option>
+          <option value='Fighting'>Fighting</option>
+          <option value='Poison'>Poison</option>
+          <option value='Ground'>Ground</option>
+          <option value='Flying'>Flying</option>
+          <option value='Psychic'>Psychic</option>
+          <option value='Bug'>Bug</option>
+          <option value='Rock'>Rock</option>
+          <option value='Ghost'>Ghost</option>
+          <option value='Dragon'>Dragon</option>
+          <option value='Dark'>Dark</option>
+          <option value='Steel'>Steel</option>
+          <option value='Fairy'>Fairy</option>
+        </select>
+      </div>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Regions</span>
+        <select
+          type='text'
+          class='form-select'
+          placeholder='PokeRegion'
+          id='region'
+          name='Region'
+        >
+          <option selected='' class='text-muted'>{{#if editMode}}{{pokemon.Region}}{{else}}Pokemon Regions{{/if}}</option>
+          <option value='Kanto'>Kanto</option>
+          <option value='Johto'>Johto</option>
+          <option value='Hoenn'>Hoenn</option>
+          <option value='Sinnoh'>Sinnoh</option>
+          <option value='Unova'>Unova</option>
+          <option value='Kalos'>Kalos</option>
+          <option value='Alola'>Alola</option>
+          <option value='Galar'>Galar</option>
+          {{#each regions as |region|}}
+            <option value='{{region.Region}}'>{{region.Region}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div>
+        {{#if editMode}}
+          <input type='hidden' id="pokemonId" name='PokemonId' value='{{pokemon.id}}' />
+        {{/if}}
+        <button id="getPokemon"  class='btn btn-danger float-end' type='submit'><img
+            src='/assets/img/fav.ico'
+            alt='Add Pokemon'
+            />
+            <input type="hidden" id="#pokemonCreate" name="PokemonCreate" value="">
+          {{#if editMode}}Edit{{else}}Get{{/if}}
+          Pokemon</button>
+        <a class='btn btn-large btn-danger py-sm-2' href="/admin/edit-Pokemons"> back</a>
+      </div>
+    </section>
+  </form>
+</main>

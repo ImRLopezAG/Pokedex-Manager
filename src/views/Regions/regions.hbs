@@ -1,0 +1,45 @@
+<main class='container mt-l'>
+  <div class='row mb-2'>
+    <div class='col-12'>
+      <h1 class='text-center'><img src='/assets/img/regionb.ico' />
+        Regions
+        <img src='/assets/img/regionb.ico' /></h1>
+    </div>
+  </div>
+  {{#if hasRegion}}
+    {{! Card }}
+    <section class='row mx-auto'>
+      {{#each regions as |region|}}
+        <div
+          class='card mb-3 col ms-2 px-0'
+          style='min-width: 22rem; max-width: 25rem;'
+        >
+          <div class='row g-0'>
+            <div class='col-md-4'>
+              <img
+                src='{{region.Image}}'
+                class='img-fluid rounded-start fill'
+                alt='{{region.Name}}'
+              />
+            </div>
+            <div class='col-md-8 py-0 pb-1'>
+              <div class='card-body px-2 py-2'>
+                <h5 class='card-title mb-1'><strong>Name:
+                  </strong>{{region.Name}}</h5>
+                <p class='card-text mb-1'><strong>Description:</strong>
+                  {{region.Description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </section>
+    {{! end Card }}
+  {{else}}
+    <div class='row'>
+      <div class='col-12'>
+        <h1 class='text-center'>No Regions Found</h1>
+      </div>
+    </div>
+  {{/if}}
+</main>

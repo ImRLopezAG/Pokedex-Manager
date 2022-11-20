@@ -1,0 +1,48 @@
+<main class='container mt-l'>
+
+  <div class='row mb-2'>
+    <div class='col-12'>
+      <h1 class='text-center'><img src='/assets/img/typeb.ico' />
+        Types
+        <img src='/assets/img/typeb.ico' /></h1>
+    </div>
+  </div>
+
+  {{#if hasType}}
+    {{! Card }}
+    <section class='row mx-auto'>
+      {{#each types as |type|}}
+        <div
+          class='card mb-3 col ms-2 px-0'
+          style='min-width: 22rem; max-width: 18rem;'
+        >
+          <div class='row g-0'>
+            <div class='col-md-4'>
+              <img
+                src='{{type.Image}}'
+                class='img-fluid rounded-start fill'
+                alt='{{type.Name}}'
+              />
+            </div>
+            <div class='col-md-8 py-0 pb-1'>
+              <div class='card-body px-2 py-2'>
+                <h5 class='card-title mb-1'><strong>Name:
+                  </strong>{{type.Name}}</h5>
+                <p class='card-text text-muted'><strong>Description:
+                  </strong>{{type.Description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </section>
+    {{! end Card }}
+  {{else}}
+    <div class='row'>
+      <div class='col-12'>
+        <h1 class='text-center'>No Types Found</h1>
+      </div>
+    </div>
+  {{/if}}
+
+</main>

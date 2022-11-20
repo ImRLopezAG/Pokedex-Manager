@@ -1,0 +1,330 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='/assets/css/style.css' />
+    <link
+      rel='shortcut icon'
+      href='https://icon-library.com/images/pokedex-icon/pokedex-icon-21.jpg'
+      type='image/x-icon'
+    />
+    <title>{{pageTitle}}</title>
+  </head>
+  <body>
+    <header>
+      <nav class='navbar navbar-dark bg-danger bg-gradient fixed-top'>
+        <div class='container-fluid'>
+          <div class='align-baseline my-0'>
+            <a class='navbar-brand' href='/'>Poke-home</a>
+            <a class='navbar-brand' href='/region'>Regions</a>
+            <a class='navbar-brand' href='/type'>Types</a>
+          </div>
+          <button
+            class='navbar-toggler bg-dark'
+            type='button'
+            data-bs-toggle='offcanvas'
+            data-bs-target='#offcanvasDarkNavbar'
+            aria-controls='offcanvasDarkNavbar'
+          >
+            <span class='navbar-toggler-icon'></span>
+          </button>
+          <div
+            class='offcanvas offcanvas-end text-bg-dark bg-dark bg-gradient'
+            tabindex='-1'
+            id='offcanvasDarkNavbar'
+            aria-labelledby='offcanvasDarkNavbarLabel'
+          >
+            <div class='offcanvas-header'>
+              <h5
+                class='offcanvas-title'
+                id='offcanvasDarkNavbarLabel'
+              >Pokemons</h5>
+              <button
+                type='button'
+                class='btn-close btn-close-white'
+                data-bs-dismiss='offcanvas'
+                aria-label='Close'
+              ></button>
+            </div>
+            <div class='offcanvas-body'>
+              <ul class='navbar-nav justify-content-end flex-grow-1 pe-3'>
+                <li><p class='text-center h5 mx-auto'>Search</p></li>
+                <li>
+                  <form
+                    class='d-flex mt-3'
+                    role='search'
+                    method='post'
+                    action='/pokemons/search'
+                  >
+                    <input
+                      class='form-control me-2'
+                      type='search'
+                      placeholder='Poke-Search'
+                      name='PokemonName'
+                      id='pokemonName'
+                    />
+                    <button
+                      class='btn btn-success'
+                      type='submit'
+                    >Search</button>
+                  </form></li>
+                <li><hr class='divider' /></li>
+                <li><p class='text-center h5 mx-auto'>Manage</p></li>
+                <li class='nav-item dropdown'>
+                  <a
+                    class='nav-link dropdown-toggle'
+                    href='#'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Pokemons
+                    <img
+                      class='img-fluid'
+                      src='/assets/img/pkMaster.ico'
+                      alt=''
+                      srcset=''
+                    />
+                  </a>
+                  <ul class='dropdown-menu dropdown-menu-dark'>
+                    <li><a
+                        class='dropdown-item'
+                        href='/admin/create-Pokemon'
+                      >Create</a></li>
+                    <hr class='dropdown-divider' />
+                    <li><a
+                        class='dropdown-item'
+                        href='/admin/edit-Pokemons'
+                      >Edit</a></li>
+                  </ul>
+                </li>
+                <li class='nav-item dropdown'>
+                  <a
+                    class='nav-link dropdown-toggle'
+                    href='#'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Regions
+                    <img
+                      class='img-fluid'
+                      src='/assets/img/region.ico'
+                      alt=''
+                      srcset=''
+                    />
+                  </a>
+                  <ul class='dropdown-menu dropdown-menu-dark'>
+                    <li><a
+                        class='dropdown-item'
+                        href='/admin/create-Region'
+                      >Create</a></li>
+                    <hr class='dropdown-divider' />
+                    <li><a
+                        class='dropdown-item'
+                        href='/admin/edit-Region'
+                      >Edit</a></li>
+                  </ul>
+                </li>
+                <li class='nav-item dropdown'>
+                  <a
+                    class='nav-link dropdown-toggle'
+                    href='#'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Types
+                    <img
+                      class='img-fluid'
+                      src='/assets/img/type.ico'
+                      alt=''
+                      srcset=''
+                    />
+                  </a>
+                  <ul class='dropdown-menu dropdown-menu-dark'>
+                    <li><a
+                        class='dropdown-item'
+                        href='/admin/create-Type'
+                      >Create</a></li>
+                    <hr class='dropdown-divider' />
+                    <li><a
+                        class='dropdown-item'
+                        href='/admin/edit-Type'
+                      >Edit</a></li>
+                  </ul>
+                </li>
+                <li><hr class='divider' /></li>
+                <li><p class='text-center h5 mx-auto'>Pokemon Filters</p></li>
+                <li class='nav-item dropdown'>
+                  <a
+                    class='nav-link dropdown-toggle'
+                    href='/pokemons'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Types
+                  </a>
+                  <ul class='dropdown-menu dropdown-menu-dark'>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/normal'
+                      >Normal</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/fire'
+                      >Fire</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/water'
+                      >Water</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/electric'
+                      >Electric</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/grass'
+                      >Grass</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/ice'
+                      >Ice</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/fighting'
+                      >Fighting</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/poison'
+                      >Poison</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/ground'
+                      >Ground</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/flying'
+                      >Flying</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/psychic'
+                      >Psychic</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/bug'
+                      >Bug</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/rock'
+                      >Rock</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/ghost'
+                      >Ghost</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/dragon'
+                      >Dragon</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/dark'
+                      >Dark</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/steel'
+                      >Steel</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/fairy'
+                      >Fairy</a></li>
+                  </ul>
+                </li>
+                <li class='nav-item dropdown'>
+                  <a
+                    class='nav-link dropdown-toggle'
+                    href='/pokemons'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Regions
+                  </a>
+                  <ul class='dropdown-menu dropdown-menu-dark'>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/kanto'
+                      >Kanto</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/johto'
+                      >Johto</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/hoenn'
+                      >Hoenn</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/sinnoh'
+                      >Sinnoh</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/unova'
+                      >Unova</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/kalos'
+                      >Kalos</a></li>
+                    <li><hr class='dropdown-divider' /></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/alola'
+                      >Alola</a></li>
+                    <li><a
+                        class='dropdown-item py-0'
+                        href='/pokemons/regions/galar'
+                      >Galar</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+    {{{body}}}
+
+    <script src="/libs/jQuery/jquery.min.js"></script>
+    <script src='/libs/bootstrap/js/bootstrap.bundle.min.js'></script>
+    <script src='/assets/js/index.js'></script>
+
+    <footer>
+      <div class='col-12 gitHub'>
+        <h6 class='text-center'>
+          Made with ❤️ by
+          <i class='bi bi-github'></i>
+          <a
+            class='text-decoration-none'
+            href='https://github.com/LopezAG17'
+            target='_blank'
+          >@LopezAG17</a>
+        </h6>
+      </div>
+    </footer>
+  </body>
+
+</html>

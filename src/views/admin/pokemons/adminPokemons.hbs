@@ -1,0 +1,66 @@
+<main class='container mt-l'>
+  <div class='row'>
+    <div class='col-12'>
+      <h1 class='text-center'><img src='/assets/img/fav.ico' />
+        Editing Pokedex
+        <img src='/assets/img/fav.ico' /></h1>
+    </div>
+  </div>
+  {{! Card }}
+  <section class='row'>
+    {{#each pokemons as |pokemon|}}
+      <div
+        class='card mb-3 col ms-2 px-0 mx-auto'
+        style='min-width: 22rem; max-width: 22rem;'
+      >
+        <div class='row g-0'>
+          <div class='col-md-4'>
+            <img
+              loading='lazy'
+              src='{{pokemon.Image}}'
+              class='img-fluid rounded-start'
+              alt='{{pokemon.Name}}'
+            />
+          </div>
+          <div class='col-md-8 py-0 pb-1'>
+            <div class='card-body px-2 py-2'>
+              {{#if (IsEqual pokemon.pokemonId '')}} {{else}}
+                <span
+                  class='text-muted float-end pb-0 mb-0'
+                >#{{pokemon.pokemonId}}</span>{{/if}}
+              <h5 class='card-title mb-0'><strong>Name:
+                </strong>{{pokemon.Name}}</h5>
+              <p class='card-text'><strong>Type:</strong>
+                {{#if (IsEqual pokemon.Type '')}}{{pokemon.Type2}} {{else}}
+                {{/if}}{{#if (IsEqual pokemon.Type2 '')}}
+                  {{pokemon.Type}}
+                {{else}} {{pokemon.Type}} / {{pokemon.Type2}}{{/if}}
+              </p>
+              <div class='form'>
+                <form action='/editPokemon' method='POST'>
+                  <a
+                    class='btn btn-info float-start'
+                    href='/admin/edit-Pokemon/{{pokemon.id}}?edit=true'
+                  >Edit</a>
+                </form>
+                <form id="formDeletePokemons" action='/admin/delete-Pokemon' method='post'>
+                  <input
+                    type='hidden'
+                    name='PokemonId'
+                    value='{{pokemon.id}}'
+                    id='pokemonId'
+                  />
+                  <button id="deletePokemons"
+                    class='btn btn-danger float-end'
+                    type='submit' onclick="return confirm('Are you sure you want to delete this pokemon?');"
+                  >Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </section>
+  {{! end Card }}
+</main>

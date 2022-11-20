@@ -1,0 +1,56 @@
+<main class='container mt-l'>
+  <div class='row mb-4'>
+    <div class='col-12'>
+      <h1 class='text-center mt-4'><img src='/assets/img/typeb.ico' />
+        {{#if editMode}}Editing {{else}}Creating a new {{/if}}Type
+        <img src='/assets/img/typeb.ico' /></h1>
+    </div>
+  </div>
+  <form method='post' action='{{#if editMode}}/admin/edit-Type{{else}}/admin/create-Type{{/if}}'>
+    <section class='row col-md-4 mx-auto'>
+      {{#if editMode}}
+          <input type='hidden' id="typeId" name='TypeId' value='{{type.id}}' />
+      {{/if}}
+      {{#if editMode}}
+        <img class="col-md-4 img-fluid mx-auto" src="{{type.Image}}"/>
+      {{/if}}
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Name</span>
+        <input
+          type='text'
+          class='form-control'
+          placeholder='Type Name'
+          id='name'
+          name='Name'
+          value='{{#if editMode}}{{type.Name}}{{/if}}'
+        />
+      </div>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Image</span>
+        <input
+          type='text'
+          class='form-control'
+          placeholder='Type Image URL'
+          id='image'
+          name='Image'
+          value='{{#if editMode}}{{type.Image}}{{/if}}'
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="Description" rows="3" maxlength="100">{{#if editMode}}{{type.Description}}{{/if}}</textarea>
+      </div>
+      <div>
+        <button id="getType" class='btn btn-danger float-end' type='submit'><img
+            src='/assets/img/type.ico'
+            alt='Add Type'
+            srcset=''/>
+          {{#if editMode}}Edit{{else}}Get{{/if}}
+          Type</button>
+          <input type="hidden" id="typeCreate" name="TypeCreate" value="">
+
+        <a class='btn btn-large btn-danger py-sm-2' href="/admin/edit-Type"> back</a>
+      </div>
+    </section>
+  </form>
+</main>
